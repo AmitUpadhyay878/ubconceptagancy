@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #f9f7f6;
+  --color-foreground: #1a1b1a;
+  --color-foreground-secondary: #6b6b6b;
+  --color-accent: #fc5b29;
+  --color-accent-dark: #e84818;
+  --color-accent-light: #fce8dc;
+  --color-accent-lighter: #fef3ee;
+  --color-border: #e8e4e2;
+  --color-card: #ffffff;
+  --color-muted: #a0a0a0;
+  --color-cool: #8b8fa0;
+  --color-cool-light: #eef0f3;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --radius-card: 1.25rem;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
