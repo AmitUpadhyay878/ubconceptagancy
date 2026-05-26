@@ -35,13 +35,13 @@ export function Header() {
 
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-lg font-semibold text-foreground-secondary hover:text-foreground transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="flex items-center gap-3 ml-4">
               <Button variant="primary" size="sm">
