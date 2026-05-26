@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { FooterSection } from "@/components/footer-section";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
     creator: "@ubconcept",
   },
   verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE",
+    google: "google-site-verification=google2f44b44c882c1b38.html",
   },
   appleWebApp: {
     title: "UBConcept",
@@ -109,7 +110,21 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <GoogleTagManager gtmId="GTM-MXKW5S5C" />
+        <GoogleAnalytics gaId="G-CHSKCQSRS6" />
+
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+         <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MXKW5S5C"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         <Header />
         {children}
         <FooterSection />
