@@ -8,7 +8,11 @@ import Link from "next/link"
 
 const navLinks = [
   { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "Services", href: "",submenu: [
+    { label: "Web Development", href: "/services/web-development" },
+    { label: "Mobile App Development", href: "/services/mobile-app-development" },
+    { label: "AI Solutions", href: "/services/ai-solutions" },
+  ] },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Insights", href: "/blog" },
 ]
@@ -34,14 +38,14 @@ export function Header() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-foreground-secondary hover:text-foreground transition-colors"
+                className="text-lg font-semibold text-foreground-secondary hover:text-foreground transition-colors"
               >
                 {link.label}
               </a>
             ))}
             <div className="flex items-center gap-3 ml-4">
               <Button variant="primary" size="sm">
-                <Link href="/contact">
+                <Link href="/contact" className="text-lg">
                   Contact
                 </Link>
               </Button>
@@ -66,19 +70,16 @@ export function Header() {
         >
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-sm text-foreground-secondary hover:text-foreground transition-colors py-2"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <div className="flex flex-col gap-3 pt-2 border-t border-border">
-              <Button variant="ghost" size="md" className="w-full">
-                <Link href="/contact">Get a Quote</Link>
-              </Button>
               <Button variant="primary" size="md" className="w-full">
                 <Link href="/contact">
                   contact

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { FooterSection } from "@/components/footer-section";
+import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = Geist({
@@ -125,9 +126,11 @@ export default function RootLayout({
           />
         </noscript>
 
-        <Header />
-        {children}
-        <FooterSection />
+        <SmoothScrollProvider>
+          <Header />
+          {children}
+          <FooterSection />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
